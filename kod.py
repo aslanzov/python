@@ -1,21 +1,21 @@
 #simple div
-str_input = input("Delimoe: ")
-delimoe = int(str_input)
+str_input = input("Chislo A: ")
+A = int(str_input)
 #print(type(delimoe))
-operation = input ("+ / * - ^ :")
-str_input2 = input("Delitel: ")
-delitel = int(str_input2)
+operation = input ("Operation (+ / * - ^): ")
+str_input2 = input("Chislo B: ")
+B = int(str_input2)
 #print(type(delitel))
 result = None
 
 if operation == '/':
-    result = delimoe / delitel
+    result = A / B
 elif operation == '+':
-    result = delimoe + delitel
+    result = A + B
 elif operation == '*':
-    result = delimoe * delitel
+    result = A * B
 elif operation == '^':
-    result = delimoe**delitel
+    result = A**B
 else:
     result = "unknown"
 
