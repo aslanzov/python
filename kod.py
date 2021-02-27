@@ -1,9 +1,15 @@
-ishod = open('ishod.txt', 'r')
-deliMOE = float(ishod.readline())
-deliTEL = float(ishod.readline(2))
-ishod.close()
+#simple div
+str_input = input("Delimoe: ")
+delimoe = int(str_input)
+#print(type(delimoe))
+peration = input ("+ / * - ^ :")
+str_input2 = input("Delitel: ")
+delitel = int(str_input2)
+#print(type(delitel))
 
-result = deliMOE/deliTEL
+if operation == '/':
+   result = delimoe/delitel
 
-resultat = open('resultat.txt', 'w')
-resultat.write(str(result))
+#result = delimoe / delitel
+#print(type(result))
+print("Result: " + str(result))
