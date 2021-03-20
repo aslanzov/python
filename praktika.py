@@ -1,11 +1,12 @@
 """
 хотим калькулятор выражений -2 +3.5 * 2 - 3 ^ 2
 """
-
 #считать строчку от пользователя
+instr = input ('Pleae, enter your task: ')
 
 #почистить строку
 # "-2 +3.5 * 2 - 3 ^ 2" -> "-2+3.5*2-3^2"
+instr = instr.replace(' ', '')
 
 #распарсить
 """
@@ -14,7 +15,31 @@
 на выход ?структура данных? с операциями +- и значениями
 (+*-)
 (-2 3.5 2 3 2)
+[{'opr' : - , 'val': 2}, {}, ...]
 """
+
+hp_ops = tuple('^')
+mp_ops = tuple('*', '/')
+lp_ops = tuple('+', '-')
+supported_ops = hp_ops + mp_ops + lp_ops
+#print (supported_ops)
+digital_chars = tuple ('0123456789.-')
+
+actions = list ()
+d = dict()
+d['opr']='First'
+d['val']=''
+actions.append(d)
+print(action)
+
+i=
+for letter in instr:
+    if letter in support_ops:
+    action.append ({'opr': letter, 'val': ''})
+        pass 
+    elif letter in digital_chars:
+        actions [-1]['val'] += letter
+        pass
 
 #вычислить операции 1го приоритета (возведение в степень)
 """
