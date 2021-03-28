@@ -118,6 +118,7 @@ if not error:
           result = str(eval(chislo_A + operation + chislo_B))
        else:
           result = chislo_B
-
+else:
+    print("Error: division by zero is not possible!")
 #вывести результат
 print("Result: " + str(result))
