@@ -34,9 +34,11 @@ actions.append(d)
 result = None
 error = False
 #премся по строчке, карент -- текущее, парсим на операции и числа
-#пока не понимаю, какой алгоритм с отрицательными числами
+#пока не понимаю, как работает алгоритм с отрицательными числами
+
 #cur = ''
 #i=0
+
 for i, letter in enumerate(instr): 
     if letter in supported_ops and (i>0) and actions[-1]['val'] != '':
         #cur = ''
