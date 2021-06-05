@@ -14,16 +14,39 @@ bot = telebot.TeleBot('1809227380:AAHzeB6fcyiywzCX_x5NfmQrN-SmRU9rduc')
 
 #принять сигнал с кнопки 'start' бота
 #приветственное сообщение об умном помощнике
-
-@bot.message_handler(commands=['start', 'help'])
+@bot.message_handler(commands=['start'])
 def send_welcome(message):
-    bot.reply_to(message, f'Привет! Меня зовут Олег, приятно познакомиться, {message.from_user.first_name}. Я умный помощник компании ГАЗ и с радостью помогу тебе с подбором автомобиля')
+    bot.reply_to(message, f'Привет! Меня зовут Олег, приятно познакомиться, {message.from_user.first_name}.'
+                          f' Я умный помощник компании ГАЗ и с радостью помогу тебе с подбором автомобиля')
+
+@bot.message_handler(commands=['help'])
+def send_welcome(message):
+    bot.reply_to(message, f'Чтобы поздороваться, напиши "Привет". Для начала нашей работы - /start')
+
 @bot.message_handler(content_types=['text'])
 def get_text_messages(message):
-    if message.text.lower() == 'привет':
+    if message.text.lower() == 'Привет':
         bot.send_message(message.from_user.id, 'Привет!')
     else:
-        bot.send_message(message.from_user.id, 'Не понимаю, что это значит.')
+        bot.send_message(message.from_user.id, 'Не понимаю, что это значит. Напиши /help')
+
+state_actions = [['Для чего вам нужен автомобиль?',
+                  [('Перевозка людей', 'people'),
+                     ('Перевозка грузов', 'product'),
+                     ('Решения для бизнеса', 'business'),
+                     ('Коммунальные службы', 'sos')]],
+                 ['',
+                  [('Перевозка людей', 'people'),
+                   ('Перевозка грузов', 'product'),
+                   ('Решения для бизнеса', 'business'),
+                   ('Коммунальные службы', 'sos')]]]
+sign_markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+people = types.KeyboardButton('Перевозка людей')
+goods = types.KeyboardButton('Перевозка грузов')
+utility = types.KeyboardButton('Коммунальные машины')
+business = types.KeyboardButton('Бизнес')
+sign_markup.add(people, goods, utility, business)
+
 """ДОП КНОПКИ в меню:
 *связаться с менеджером
 *перейти в шоурум
